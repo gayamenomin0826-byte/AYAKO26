@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  /* Custom palette matching the request */
+  --color-brand-bg: #0B0B0F; /* Deep Black */
+  --color-brand-card: #15151E; /* Dark Gray Card */
+  --color-brand-card-light: #20202F;
+  --color-brand-accent: #ff2a85; /* Vibrant Magenta Pink */
+  --color-brand-accent-hover: #ff529d;
+  --color-brand-ice: #ff85b3; /* Light Pink */
+  --color-brand-text: #E5E7EB;
+  --color-brand-text-dark: #9CA3AF;
+}
+
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+}
+
+/* Glassmorphism scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B0B0F;
+}
+::-webkit-scrollbar-thumb {
+  background: #20202F;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-cyan-400, #ff2a85);
+}
+
+/* High-quality sharp image rendering & crisp detail */
+img, .manga-page-img {
+  image-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content-visibility: auto;
+}
+
+/* Glowing text effects */
+.glow-text {
+  text-shadow: 0 0 10px var(--color-cyan-400, #ff2a85);
+}
+
+.glow-border {
+  box-shadow: 0 0 15px var(--color-cyan-400, #ff2a85);
+}
+
+/* Anti-copy and Print protection for non-staff readers */
+.reader-protected {
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+@media print {
+  .reader-protected {
+    display: none !important;
+  }
+  body::before {
+    content: "Аяко Манга - Дэлгэцийн зураг авах болон хэвлэхийг хориглосон контент";
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    text-align: center;
+    padding: 50px;
+    display: block;
+  }
+}

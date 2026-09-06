@@ -1,0 +1,88 @@
+{
+  "entities": {
+    "user": {
+      "title": "User",
+      "description": "User profile with role-based access control",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "username": { "type": "string" },
+        "code": { "type": "string" },
+        "role": { "type": "string", "enum": ["super_admin", "admin", "vip", "reader"] },
+        "vipUntil": { "type": "string" }
+      },
+      "required": ["id", "email", "username", "role"]
+    },
+    "manga": {
+      "title": "Manga",
+      "description": "A manga series",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "coverUrl": { "type": "string" },
+        "author": { "type": "string" },
+        "genres": { "type": "array" },
+        "status": { "type": "string", "enum": ["publishing", "completed", "full_release"] },
+        "views": { "type": "number" },
+        "likes": { "type": "number" },
+        "type": { "type": "string", "enum": ["manga", "manhwa", "bl", "gl"] }
+      },
+      "required": ["id", "title", "coverUrl", "status"]
+    },
+    "chapter": {
+      "title": "Chapter",
+      "description": "A chapter of a manga series",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "mangaId": { "type": "string" },
+        "title": { "type": "string" },
+        "translator": { "type": "string" },
+        "editor": { "type": "string" },
+        "typesetter": { "type": "string" },
+        "isVip": { "type": "boolean" },
+        "createdAt": { "type": "string" },
+        "images": { "type": "array" }
+      },
+      "required": ["id", "mangaId", "title", "isVip"]
+    },
+    "vipRequest": {
+      "title": "VIP Request",
+      "description": "A payment verification request for VIP status",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "username": { "type": "string" },
+        "userEmail": { "type": "string" },
+        "durationText": { "type": "string" },
+        "receiptName": { "type": "string" },
+        "receiptImage": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "username", "status"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "user",
+      "description": "User accounts"
+    },
+    "/mangas/{mangaId}": {
+      "schema": "manga",
+      "description": "Manga collection"
+    },
+    "/mangas/{mangaId}/chapters/{chapterId}": {
+      "schema": "chapter",
+      "description": "Chapters subcollection"
+    },
+    "/vipRequests/{requestId}": {
+      "schema": "vipRequest",
+      "description": "VIP requests collection"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>MISORA | Аяако Манга</title>
+    <!-- Synchronous Immediate Theme & Site Config Applicator (Eliminates Flash) -->
+    <script>
+      (function() {
+        try {
+          var initialTheme = null;
+          if (window.__INITIAL_DATA__ && window.__INITIAL_DATA__.siteConfig && window.__INITIAL_DATA__.siteConfig.themeColor) {
+            initialTheme = window.__INITIAL_DATA__.siteConfig.themeColor;
+          } else {
+            var rawConfig = localStorage.getItem('ayako_siteConfig');
+            if (rawConfig) {
+              var cfg = JSON.parse(rawConfig);
+              initialTheme = cfg.themeColor;
+            }
+            if (!initialTheme) {
+              initialTheme = localStorage.getItem('ayako_theme_color');
+            }
+          }
+          if (initialTheme && initialTheme.startsWith('#')) {
+            var root = document.documentElement;
+            root.style.setProperty('--color-brand-accent', initialTheme);
+            root.style.setProperty('--theme-accent', initialTheme);
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

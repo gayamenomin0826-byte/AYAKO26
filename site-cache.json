@@ -1,0 +1,16 @@
+{
+  "siteConfig": {
+    "siteName": "MISORA",
+    "themeColor": "#ff2a85",
+    "bannerTitle": "MANGA",
+    "bannerSubtitle": "Манга, Махвуа, Комиксыг хамгийн хурднаар орчуулан хүргэж байна",
+    "isFreeSiteMode": false,
+    "isMoviesTabEnabled": true
+  },
+  "mangas": [],
+  "chapters": [],
+  "genres": [],
+  "movies": [],
+  "movieEpisodes": [],
+  "lastUpdated": 1788597940567
+}

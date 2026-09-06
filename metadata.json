@@ -1,0 +1,6 @@
+{
+  "name": "MISORA",
+  "description": "A high-performance Manga and Manhwa reading platform featuring role-based controls, chapter management, VIP approval with receipt uploads, and financial salary calculators.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
